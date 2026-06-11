@@ -11,6 +11,7 @@ body {
 }
 
 /* Mobile-first */
+
 .app-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -102,6 +103,7 @@ header {
 }
 
 /* Cards de pratos */
+
 .menu-grid, .orders-list, .loyalty-card {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -155,6 +157,7 @@ header {
 }
 
 /* Modais */
+
 .modal {
     display: none;
     position: fixed;
@@ -248,6 +251,7 @@ footer {
 }
 
 /* Responsividade desktop */
+
 @media (min-width: 768px) {
     .app-container {
         padding: 1rem;
@@ -260,15 +264,16 @@ footer {
     }
 }
 
-/* Imagem do restaurante na home - versão menor */
+/* Imagem do restaurante na home */
+
 .restaurant-image {
-    width: 100%;          /* Largura reduzida (ajuste para 70% ou 60% se quiser menor) */
-    max-width: 600px;    /* Limite máximo para telas grandes */
-    margin: 1rem auto;   /* Centraliza horizontalmente */
+    width: 100%;          
+    max-width: 600px;    
+    margin: 1rem auto;   
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    background-color: #fef5e8; /* cor de fundo neutra */
+    background-color: #fef5e8; 
 }
 
 .restaurant-image img {
