@@ -1,4 +1,5 @@
 // ==================== VARIÁVEIS GLOBAIS ====================
+
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 let users = JSON.parse(localStorage.getItem("users")) || [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -7,6 +8,7 @@ let currentCity = localStorage.getItem("city") || "salvador";
 let lgpdAccepted = localStorage.getItem("lgpdAccepted") === "true";
 
 // ==================== UTILITÁRIOS ====================
+
 function saveToLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
@@ -18,6 +20,7 @@ function updateCartCount() {
 }
 
 // ==================== RENDERIZAÇÃO DE TELAS ====================
+
 function showScreen(screenId) {
     document.querySelectorAll(".nav-btn").forEach(btn => {
         if (btn.dataset.screen === screenId) btn.classList.add("active");
@@ -147,6 +150,7 @@ function renderLoyalty() {
 }
 
 // ==================== CARRINHO E CHECKOUT ====================
+
 function openCartModal() {
     if (cart.length === 0) {
         alert("Seu carrinho está vazio.");
@@ -242,7 +246,8 @@ async function finalizarPedido() {
     }
 }
 
-// ==================== AUTENTICAÇÃO (COM FIX DO BOTÃO) ====================
+// ==================== AUTENTICAÇÃO ====================
+
 function showAuthModal() {
     const modal = document.getElementById("authModal");
     if (modal) modal.style.display = "flex";
@@ -320,6 +325,7 @@ function updateUserInterface() {
 }
 
 // ==================== LGPD MODAL ====================
+
 function initLgpd() {
     if (!lgpdAccepted) {
         const modal = document.getElementById("lgpdModal");
@@ -335,8 +341,10 @@ function initLgpd() {
 }
 
 // ==================== EVENTOS E INICIALIZAÇÃO ====================
+
 function bindGlobalEvents() {
     // Seletor de cidade
+    
     const citySelect = document.getElementById("citySelect");
     if (citySelect) {
         citySelect.addEventListener("change", (e) => {
@@ -348,10 +356,12 @@ function bindGlobalEvents() {
     }
 
     // Botão carrinho
+    
     const cartBtn = document.getElementById("cartBtn");
     if (cartBtn) cartBtn.addEventListener("click", openCartModal);
 
     // Fechar modais
+    
     document.querySelectorAll(".close").forEach(close => {
         close.addEventListener("click", () => {
             document.querySelectorAll(".modal").forEach(modal => modal.style.display = "none");
@@ -359,11 +369,13 @@ function bindGlobalEvents() {
     });
 
     // Navegação principal
+    
     document.querySelectorAll(".nav-btn").forEach(btn => {
         btn.addEventListener("click", () => showScreen(btn.dataset.screen));
     });
 
     // Link LGPD rodapé
+    
     const lgpdLink = document.getElementById("lgpdLink");
     if (lgpdLink) {
         lgpdLink.addEventListener("click", (e) => {
@@ -373,17 +385,20 @@ function bindGlobalEvents() {
     }
 
     // Botão de checkout (carrinho)
+    
     const checkoutBtn = document.getElementById("checkoutBtn");
     if (checkoutBtn) checkoutBtn.addEventListener("click", finalizarPedido);
 
     // Botões de autenticação (usando handlers definidos)
+    
     const doLoginBtn = document.getElementById("doLogin");
     if (doLoginBtn) doLoginBtn.addEventListener("click", handleLogin);
 
     const doRegisterBtn = document.getElementById("doRegister");
     if (doRegisterBtn) doRegisterBtn.addEventListener("click", handleRegister);
 
-    // Tabs do modal de auth
+    // Tabs do modal de autent
+    
     const tabBtns = document.querySelectorAll("#authTabs .tab-btn");
     tabBtns.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -398,6 +413,7 @@ function bindGlobalEvents() {
 }
 
 // Inicialização completa
+
 function init() {
     bindGlobalEvents();
     updateCartCount();
@@ -407,6 +423,7 @@ function init() {
 }
 
 // Iniciar quando o DOM estiver pronto
+
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
 } else {
