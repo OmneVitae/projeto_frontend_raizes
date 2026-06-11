@@ -1,4 +1,4 @@
-// mockData.js
+
 const menuData = {
     salvador: [
         { id: 1, nome: "Baião de dois", descricao: "Arroz, feijão verde, carne seca, queijo coalho.", preco: 28.90, imagem: "images/baiao_de_dois.png" },
